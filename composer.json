@@ -1,0 +1,30 @@
+{
+  "name": "denosyscore/app",
+  "description": "DenoSys application skeleton",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "php": "^8.2",
+    "denosyscore/framework": "^0.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Database\\Factories\\": "database/factories/",
+      "Database\\Seeders\\": "database/seeders/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ]
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
