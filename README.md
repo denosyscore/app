@@ -19,13 +19,13 @@ The root app `composer.json` keeps dependencies minimal:
 
 ```bash
 cd my-app
-php denosys optimize
+php core optimize
 php -S 127.0.0.1:8000 -t public
 ```
 
 ## What You Get
 
-- HTTP and CLI entry points (`public/index.php`, `denosys`)
+- HTTP and CLI entry points (`public/index.php`, `core`)
 - Application bootstrap (`bootstrap/app.php`)
 - Base app provider, controller, and user model
 - Starter configuration in `config/`
