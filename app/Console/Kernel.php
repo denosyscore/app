@@ -13,7 +13,7 @@ use Denosys\Console\Kernel as ConsoleKernel;
  * Just create a command file - no registration needed.
  * 
  * To create a new command:
- *   php cfxp make:command YourCommandName
+ *   php denosys make:command YourCommandName
  */
 class Kernel extends ConsoleKernel
 {

@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'cookie' => env('SESSION_COOKIE', 'cfxp_session'),
+    'cookie' => env('SESSION_COOKIE', 'denosys_session'),
 
     /*
     |--------------------------------------------------------------------------
@@ -113,7 +113,7 @@ return [
     |
     */
 
-    'cookie_data' => env('SESSION_COOKIE_DATA', 'cfxp_session_data'),
+    'cookie_data' => env('SESSION_COOKIE_DATA', 'denosys_session_data'),
 
     /*
     |--------------------------------------------------------------------------
