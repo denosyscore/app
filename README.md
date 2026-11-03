@@ -10,6 +10,9 @@ composer create-project denosyscore/app my-app
 
 ## Dependency Model
 
+New projects require PHP 8.4.1 or newer and framework 0.5.1 or newer in the
+0.5 release line. This raises the minimum runtime from skeleton v0.2.0.
+
 The root app `composer.json` keeps dependencies minimal:
 
 - `denosyscore/framework` as the single framework dependency
@@ -47,6 +50,6 @@ PHP-FPM. Public upload handlers should also restrict file type and extension.
 
 ## Repository Workflows
 
-- `CI`: composer validation, PHP syntax checks, and public disk URL contract on push/PR
+- `CI`: clean published dependency installs, CLI boot, manifest and syntax checks, and disk/router contracts on PHP 8.4 and 8.5
 - `Release`: publish GitHub release on semantic tags
 - `Dependabot`: weekly Composer dependency checks

@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.0
+
+- Require PHP 8.4.1 and framework 0.5.1 or newer in the 0.5 release line for new projects.
+- Install published dependencies and boot the CLI in CI on PHP 8.4 and 8.5.
+
 ## v0.2.0
 
 - Map the default public disk directly to its web-served `/storage` URL without
