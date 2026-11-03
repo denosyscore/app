@@ -20,7 +20,7 @@ The root app `composer.json` keeps dependencies minimal:
 ```bash
 cd my-app
 php core optimize
-php -S 127.0.0.1:8000 -t public
+php -S 127.0.0.1:8000 -t public dev-server.php
 ```
 
 The public disk writes to `public/storage` and returns `/storage` URLs. Make
@@ -28,6 +28,11 @@ that directory writable by the web process. Private files belong in a separate
 disk rooted outside `public/`. If upgrading an existing application that used
 `storage/app/public`, copy its public files into `public/storage` before
 switching to this default.
+
+The development router rejects executable extensions and hidden paths under
+the web root. In production, configure the web server to deny PHP and other
+executable files under `/storage/`, and allow only `public/index.php` to reach
+PHP-FPM. Public upload handlers should also restrict file type and extension.
 
 ## What You Get
 

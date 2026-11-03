@@ -32,3 +32,6 @@ jobs:
 
       - name: Public disk URL contract
         run: php tests/public_disk.php
+
+      - name: Development router
+        run: php tests/dev_server.php
