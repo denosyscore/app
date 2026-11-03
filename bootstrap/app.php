@@ -7,6 +7,7 @@ use Denosys\Http\Exceptions\ExceptionHandler;
 return (new Denosys\Application(basePath: dirname(__DIR__)))
     ->withProviders([
         App\Providers\AppServiceProvider::class,
+        Denosys\Mail\MailServiceProvider::class,
         Denosys\Filesystem\FilesystemServiceProvider::class,
         Denosys\Queue\QueueServiceProvider::class,
     ])

@@ -35,6 +35,9 @@ jobs:
       - name: CLI boot
         run: php core list
 
+      - name: Starter mail provider
+        run: php tests/mail.php
+
       - name: PHP syntax check
         run: |
           for dir in app bootstrap config public routes support; do

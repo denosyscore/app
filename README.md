@@ -40,6 +40,17 @@ the web root. In production, configure the web server to deny PHP and other
 executable files under `/storage/`, and allow only `public/index.php` to reach
 PHP-FPM. Public upload handlers should also restrict file type and extension.
 
+## Mail
+
+The starter app registers `Denosys\Mail\MailServiceProvider`, which binds
+Symfony's `MailerInterface` and resolves its transport when first used. Set
+`MAIL_MAILER=smtp` with the `MAIL_HOST`, `MAIL_PORT`, `MAIL_ENCRYPTION`,
+`MAIL_USERNAME`, and `MAIL_PASSWORD` values needed by your server, or set
+`MAIL_MAILER=sendmail` and `MAIL_SENDMAIL_PATH`. For another Symfony-supported
+transport, set an explicit `MAIL_DSN`; it takes precedence over `MAIL_MAILER`.
+The starter config does not provide Mailgun, log, or in-memory array drivers.
+Configure and verify a real transport before sending account mail.
+
 ## What You Get
 
 - HTTP and CLI entry points (`public/index.php`, `core`)

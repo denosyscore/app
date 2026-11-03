@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * Mail Configuration
- * 
+ *
  * Configure the mail driver and transport settings.
  */
 return [
@@ -13,11 +13,11 @@ return [
     | Default Mailer
     |--------------------------------------------------------------------------
     |
-    | The default mailer to use for sending emails. Supported: "smtp",
-    | "sendmail", "mailgun", "log", "array"
+    | Select "smtp" or "sendmail". An explicit Symfony DSN takes precedence.
     |
     */
     'default' => env('MAIL_MAILER', 'smtp'),
+    'dsn' => env('MAIL_DSN'),
 
     /*
     |--------------------------------------------------------------------------
@@ -47,26 +47,11 @@ return [
             'encryption' => env('MAIL_ENCRYPTION', 'tls'), // tls, ssl, or null
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
-            'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN'),
-        ],
-
-        'mailgun' => [
-            'domain' => env('MAILGUN_DOMAIN', ''),
-            'api_key' => env('MAILGUN_API_KEY', ''),
-            'region' => env('MAILGUN_REGION', 'us'), // us or eu
         ],
 
         'sendmail' => [
             'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs'),
         ],
 
-        'log' => [
-            'channel' => env('MAIL_LOG_CHANNEL', 'mail'),
-        ],
-
-        'array' => [
-            // Used for testing - messages are captured and stored
-        ],
     ],
 ];
