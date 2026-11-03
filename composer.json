@@ -4,8 +4,8 @@
   "type": "project",
   "license": "MIT",
   "require": {
-    "php": "^8.2",
-    "denosyscore/framework": "^0.3"
+    "php": "^8.4.1",
+    "denosyscore/framework": "^0.5.1"
   },
   "autoload": {
     "psr-4": {
