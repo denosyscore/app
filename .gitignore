@@ -1,4 +1,6 @@
 /vendor/
+/public/storage/*
+!/public/storage/.gitkeep
 /.idea/
 /.vscode/
 .env

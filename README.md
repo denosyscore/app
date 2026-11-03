@@ -20,8 +20,22 @@ The root app `composer.json` keeps dependencies minimal:
 ```bash
 cd my-app
 php core optimize
-php -S 127.0.0.1:8000 -t public
+php -S 127.0.0.1:8000 -t public dev-server.php
 ```
+
+The public disk writes to `public/storage` and returns `/storage` URLs. Make
+that directory writable by the web process. Private files belong in a separate
+disk rooted outside `public/`. If upgrading an existing application that used
+`storage/app/public`, stop writes and back up both locations. If
+`public/storage` is a symlink, unlink only the symlink first while preserving
+`storage/app/public`; create a real `public/storage` directory, then copy the
+old public files into it and verify their hashes. Clear any cached
+configuration with `php core config:clear` before resuming writes.
+
+The development router rejects executable extensions and hidden paths under
+the web root. In production, configure the web server to deny PHP and other
+executable files under `/storage/`, and allow only `public/index.php` to reach
+PHP-FPM. Public upload handlers should also restrict file type and extension.
 
 ## What You Get
 
@@ -33,6 +47,6 @@ php -S 127.0.0.1:8000 -t public
 
 ## Repository Workflows
 
-- `CI`: composer validation + PHP syntax checks on push/PR
+- `CI`: composer validation, PHP syntax checks, and public disk URL contract on push/PR
 - `Release`: publish GitHub release on semantic tags
 - `Dependabot`: weekly Composer dependency checks

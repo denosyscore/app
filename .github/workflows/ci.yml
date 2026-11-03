@@ -29,3 +29,9 @@ jobs:
               find "$dir" -type f -name '*.php' -print0 | xargs -0 -n1 php -l
             fi
           done
+
+      - name: Public disk URL contract
+        run: php tests/public_disk.php
+
+      - name: Development router
+        run: php tests/dev_server.php
