@@ -23,6 +23,12 @@ php core optimize
 php -S 127.0.0.1:8000 -t public
 ```
 
+The public disk writes to `public/storage` and returns `/storage` URLs. Make
+that directory writable by the web process. Private files belong in a separate
+disk rooted outside `public/`. If upgrading an existing application that used
+`storage/app/public`, copy its public files into `public/storage` before
+switching to this default.
+
 ## What You Get
 
 - HTTP and CLI entry points (`public/index.php`, `core`)
@@ -33,6 +39,6 @@ php -S 127.0.0.1:8000 -t public
 
 ## Repository Workflows
 
-- `CI`: composer validation + PHP syntax checks on push/PR
+- `CI`: composer validation, PHP syntax checks, and public disk URL contract on push/PR
 - `Release`: publish GitHub release on semantic tags
 - `Dependabot`: weekly Composer dependency checks
