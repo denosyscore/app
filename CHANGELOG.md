@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.4.0
+
+- Register the framework mail provider in new projects so the configured
+  Symfony mailer can resolve during application boot.
+- Align starter mail configuration with supported SMTP, sendmail, and explicit
+  Symfony DSN transports; remove advertised drivers that were not implemented.
+- Exercise mailer and DSN resolution on PHP 8.4 and 8.5 in CI.
+
 ## v0.3.0
 
 - Require PHP 8.4.1 and framework 0.5.1 or newer in the 0.5 release line for new projects.
