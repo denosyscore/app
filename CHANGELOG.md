@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased (proposed v0.5.0)
+
+- Require framework 0.6.0 so new projects install its tested component
+  distribution without repeating runtime package constraints.
+
 ## v0.4.0
 
 - Register the framework mail provider in new projects so the configured
