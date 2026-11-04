@@ -10,8 +10,9 @@ composer create-project denosyscore/app my-app
 
 ## Dependency Model
 
-New projects require PHP 8.4.1 or newer and framework 0.5.1 or newer in the
-0.5 release line. This raises the minimum runtime from skeleton v0.2.0.
+New projects require PHP 8.4.1 or newer and framework 0.6.0 or newer in the
+0.6 release line. Framework 0.6 defines a tested component distribution, so
+projects do not need separate Denosys runtime package constraints.
 
 The root app `composer.json` keeps dependencies minimal:
 
