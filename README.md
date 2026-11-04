@@ -10,8 +10,8 @@ composer create-project denosyscore/app my-app
 
 ## Dependency Model
 
-New projects require PHP 8.4.1 or newer and framework 0.6.0 or newer in the
-0.6 release line. Framework 0.6 defines a tested component distribution, so
+New projects require PHP 8.4.1 or newer and framework 0.7.0 or newer in the
+0.7 release line. Framework defines a tested component distribution, so
 projects do not need separate Denosys runtime package constraints.
 
 The root app `composer.json` keeps dependencies minimal:
@@ -51,6 +51,10 @@ Symfony's `MailerInterface` and resolves its transport when first used. Set
 transport, set an explicit `MAIL_DSN`; it takes precedence over `MAIL_MAILER`.
 The starter config does not provide Mailgun, log, or in-memory array drivers.
 Configure and verify a real transport before sending account mail.
+The framework's `make:mail` command now generates Symfony MIME `Email`
+messages. Its former `--markdown` option is unsupported. Applications using
+generated messages should declare `symfony/mime` directly and send through
+the registered `MailerInterface`.
 
 ## What You Get
 

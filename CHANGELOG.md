@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased (proposed v0.6.0)
+
+- Require framework 0.7.0 so fresh projects install the tested Console 0.4
+  distribution and its corrected Symfony MIME mail generator.
+- Verify the 0.7 framework series on PHP 8.4 and 8.5 clean installs.
+- Document the generator's breaking output and removal of `--markdown`.
+
 ## Unreleased (proposed v0.5.0)
 
 - Require framework 0.6.0 so new projects install its tested component
