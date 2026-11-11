@@ -35,6 +35,7 @@ return [
             'visibility' => 'public',
         ],
 
+        // Requires: composer require league/flysystem-aws-s3-v3
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -44,11 +45,6 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
             'prefix' => env('AWS_PREFIX', ''),
-        ],
-
-        'kyc' => [
-            'driver' => env('KYC_DISK_DRIVER', 'local'),
-            'root' => storage_path('app/private/kyc'),
         ],
     ],
 

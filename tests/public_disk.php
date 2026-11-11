@@ -26,8 +26,8 @@ if (!is_string($urlPath) || $public['root'] !== public_path(ltrim($urlPath, '/')
     throw new RuntimeException('The public disk URL does not map to its web-served root.');
 }
 
-if (str_starts_with($config['disks']['kyc']['root'], public_path())) {
-    throw new RuntimeException('The private disk is inside the web-served root.');
+if (str_starts_with($config['disks']['local']['root'], public_path())) {
+    throw new RuntimeException('The local disk is inside the web-served root.');
 }
 
 $avatarDirectory = $public['root'] . '/avatars';

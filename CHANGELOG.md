@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.8.0 – 2026-11-11
+
+- Require framework 0.9.0, which drops application-specific helpers and the
+  Mailgun, GeoIP2, html2text, HttpClient and S3 dependencies, and looks for
+  views in `resources/views`.
+- `config/app.php` keeps only generic keys (`name`, `key`, `url`, `env`,
+  `debug`, `timezone`, `version`); the contact and description keys are gone.
+- `config/filesystems.php` keeps the `local`, `public` and `s3` disks; the
+  `s3` disk notes that it needs `league/flysystem-aws-s3-v3`.
+- CI fails when config gains application-specific keys or disks, or when a
+  tracked file contains a word that identifies a known consumer. The
+  denylist is stored as SHA-256 hashes.
+
 ## v0.7.0 – 2026-11-11
 
 - Require framework 0.8.0, so new projects install the component releases

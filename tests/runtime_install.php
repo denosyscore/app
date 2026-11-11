@@ -11,10 +11,10 @@ if (PHP_VERSION_ID < 80401) {
 $frameworkVersion = Composer\InstalledVersions::getVersion('denosyscore/framework');
 if (
     $frameworkVersion === null
-    || version_compare($frameworkVersion, '0.8.0', '<')
-    || version_compare($frameworkVersion, '0.9.0', '>=')
+    || version_compare($frameworkVersion, '0.9.0', '<')
+    || version_compare($frameworkVersion, '0.10.0', '>=')
 ) {
-    throw new RuntimeException('The skeleton must resolve framework 0.8.0 or newer in the 0.8 series.');
+    throw new RuntimeException('The skeleton must resolve framework 0.9.0 or newer in the 0.9 series.');
 }
 
 echo "Current framework runtime installed.\n";
