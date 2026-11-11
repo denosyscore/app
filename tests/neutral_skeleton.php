@@ -57,6 +57,30 @@ foreach (explode("\0", implode("\n", $output)) as $file) {
     }
 }
 
+/**
+ * Lower-case words in a line: each alphanumeric run and, for CamelCase
+ * identifiers such as ExampleController, each of its parts.
+ *
+ * @return list<string>
+ */
+function words(string $line): array
+{
+    preg_match_all('/[a-z0-9]+/i', $line, $matches);
+    $words = [];
+    foreach ($matches[0] as $token) {
+        $words[] = strtolower($token);
+        foreach (preg_split('/(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])/', $token) ?: [] as $part) {
+            $words[] = strtolower($part);
+        }
+    }
+
+    return array_values(array_unique($words));
+}
+
+if (words('ExampleHTTPController') !== ['examplehttpcontroller', 'example', 'http', 'controller']) {
+    throw new RuntimeException('CamelCase identifiers are not split into their parts.');
+}
+
 $denylist = array_flip(DENYLIST);
 foreach ($files as $file) {
     $contents = (string) file_get_contents($root . '/' . $file);
@@ -65,9 +89,8 @@ foreach ($files as $file) {
     }
 
     foreach (preg_split('/\R/', $file . "\n" . $contents) ?: [] as $index => $line) {
-        preg_match_all('/[a-z0-9]+/i', $line, $words);
-        foreach ($words[0] as $word) {
-            if (isset($denylist[hash('sha256', strtolower($word))])) {
+        foreach (words($line) as $word) {
+            if (isset($denylist[hash('sha256', $word)])) {
                 $failures[] = $index === 0
                     ? "{$file}: path contains a consumer-specific word"
                     : "{$file}:{$index} contains a consumer-specific word";
