@@ -46,6 +46,9 @@ jobs:
             fi
           done
 
+      - name: Application-neutral skeleton
+        run: php tests/neutral_skeleton.php
+
       - name: Public disk URL contract
         run: php tests/public_disk.php
 
