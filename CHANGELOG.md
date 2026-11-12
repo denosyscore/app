@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.11.0 – 2026-11-12
+
+- Require framework 0.12.0. Configuration is a `Denosys\Config\Repository`
+  (from `denosyscore/config`), and services read settings instead of the
+  process environment.
+- Add `config/logging.php`, which maps `LOG_PATH` to `logging.path`; the
+  logger now reads its path from configuration.
+
 ## v0.10.0 – 2026-11-12
 
 - Require framework 0.11.1 (0.11.0 resolved its components to 0.10). Service providers now live in the framework:
