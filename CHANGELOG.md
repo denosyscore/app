@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.9.0 – 2026-11-12
+
+- Require framework 0.10.0. The framework is now the DenoSys monorepo and
+  contains every component, so a new project installs one `denosyscore/*`
+  package instead of nineteen.
+
 ## v0.8.0 – 2026-11-11
 
 - Require framework 0.9.0, which drops application-specific helpers and the
