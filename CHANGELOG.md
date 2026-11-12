@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.12.0 – 2026-11-12
+
+- Require framework 0.13.0, whose container injects configuration with
+  `#[Config('path')]` and no longer provides `container:warmup` or
+  `container:clear`.
+
 ## v0.11.0 – 2026-11-12
 
 - Require framework 0.12.0. Configuration is a `Denosys\Config\Repository`
