@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.14.0 – 2026-11-12
+
+- Require framework 0.16.0, which completes Phase 2 of the redesign: typed
+  configuration, a small container, one boot path, lazy listeners and
+  attribute commands.
+- Remove `app/Console/Kernel.php`: the console kernel is no longer
+  subclassed. Commands in `app/Console/Commands` are still discovered, and
+  `make:command` generates `#[AsCommand]` classes.
+
 ## v0.13.0 – 2026-11-12
 
 - Require framework 0.14.1. `bootstrap/app.php` uses
