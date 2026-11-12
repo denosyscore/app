@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.13.0 – 2026-11-12
+
+- Require framework 0.14.1. `bootstrap/app.php` uses
+  `Application::configure(...)->create()` and lists only the application's
+  own providers: mail, filesystem and queue are framework defaults now.
+- Remove `bootstrap/providers.php`, which the framework no longer reads.
+
 ## v0.12.0 – 2026-11-12
 
 - Require framework 0.13.0, whose container injects configuration with
