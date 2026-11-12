@@ -20,7 +20,7 @@ if ((string) $container->get(Symfony\Component\Mailer\Transport\TransportInterfa
     throw new RuntimeException('The starter mail config did not select the explicit DSN.');
 }
 
-$config = $container->get(Denosys\Config\ConfigurationInterface::class);
+$config = $container->get(Denosys\Config\Repository::class);
 $mailers = $config->get('mail.mailers');
 if (!is_array($mailers) || array_keys($mailers) !== ['smtp', 'sendmail']) {
     throw new RuntimeException('The starter mail config advertises unsupported transports.');
