@@ -9,7 +9,7 @@ putenv('MAIL_DSN=null://null');
 
 $app = require dirname(__DIR__) . '/bootstrap/app.php';
 
-$app->getHttpKernel()->bootstrap();
+$app->boot();
 
 $container = Denosys\Application::getContainer();
 if (!$container->get(Symfony\Component\Mailer\MailerInterface::class) instanceof Symfony\Component\Mailer\MailerInterface) {
