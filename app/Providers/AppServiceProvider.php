@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use Denosys\Container\ContainerInterface;
-use Denosys\Contracts\ServiceProviderInterface;
+use Denosys\Framework\Provider;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
-class AppServiceProvider implements ServiceProviderInterface
+class AppServiceProvider implements Provider
 {
     public function register(ContainerInterface $container): void
     {

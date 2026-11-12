@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.10.0 – 2026-11-12
+
+- Require framework 0.11.1 (0.11.0 resolved its components to 0.10). Service providers now live in the framework:
+  `bootstrap/app.php` registers `Denosys\Framework\Providers\MailServiceProvider`,
+  `FilesystemServiceProvider` and `QueueServiceProvider`, and
+  `AppServiceProvider` implements `Denosys\Framework\Provider`.
+
 ## v0.9.0 – 2026-11-12
 
 - Require framework 0.10.0. The framework is now the DenoSys monorepo and
