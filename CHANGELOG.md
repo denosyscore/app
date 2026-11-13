@@ -3,8 +3,9 @@
 ## v0.15.0 – 2026-11-13
 
 - Require framework 0.20.0. Its query builder is immutable: builder methods
-  return a new query, so use their result, and nested `where()` callbacks
-  return the query they receive. One `migrate` runs at a time per database,
+  return a new query, so use their result. A nested `where()` callback must
+  return the query it receives with its conditions added, such as
+  `fn ($q) => $q->where(...)`; returning it unchanged adds no condition. One `migrate` runs at a time per database,
   `migrate --pretend` prints SQL, and `migrate` stops when a migration that
   already ran has changed. Schema changes are transactional on SQLite and
   PostgreSQL, and SQLite rebuilds a table to change a column.
