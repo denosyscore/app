@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.15.0 – 2026-11-13
+
+- Require framework 0.20.0. Its query builder is immutable: builder methods
+  return a new query, so use their result, and nested `where()` callbacks
+  return the query they receive. One `migrate` runs at a time per database,
+  `migrate --pretend` prints SQL, and `migrate` stops when a migration that
+  already ran has changed. Schema changes are transactional on SQLite and
+  PostgreSQL, and SQLite rebuilds a table to change a column.
+- Connections refuse servers older than MySQL 8.4, MariaDB 10.11,
+  PostgreSQL 15 and SQLite 3.35, and an unknown driver. A `mariadb`
+  connection is added to `config/database.php`.
+
 ## v0.14.0 – 2026-11-12
 
 - Require framework 0.16.0, which completes Phase 2 of the redesign: typed

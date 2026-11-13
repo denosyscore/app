@@ -22,7 +22,9 @@ return [
     | Configure each database connection. The ORM supports multiple simultaneous
     | connections. Each connection specifies its driver and configuration.
     |
-    | Supported Drivers: "mysql", "pgsql", "sqlite"
+    | Supported Drivers: "mysql", "mariadb", "pgsql", "sqlite"
+    | Oldest supported servers: MySQL 8.4, MariaDB 10.11, PostgreSQL 15,
+    | SQLite 3.35. An older server is refused when the connection opens.
     |
     */
     
@@ -30,6 +32,24 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', 3306),
+            'database' => env('DB_DATABASE', 'denosys'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => env('DB_CHARSET', 'utf8mb4'),
+            'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
+            'prefix' => env('DB_PREFIX', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'options' => [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ],
+        ],
+
+        'mariadb' => [
+            'driver' => 'mariadb',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', 3306),
             'database' => env('DB_DATABASE', 'denosys'),
