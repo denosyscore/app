@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.17.0 – 2026-11-13
+
+- Require framework 0.22.0. Encryption uses a key ring: `app.key` encrypts and
+  `app.previous_keys` (`APP_PREVIOUS_KEYS`, comma-separated) still decrypts
+  after a rotation; values are strings only. Cache counters and rate limits
+  are atomic. Filesystem operations throw instead of returning `false`,
+  uploads are named by detected content type and unsafe types are refused,
+  and the local disk is private (files 0600) unless a disk sets `visibility`.
+
 ## v0.16.0 – 2026-11-13
 
 - Require framework 0.21.0. Models are replaced by records: `App\Models\User`

@@ -36,7 +36,7 @@ function public_path(string $path = ''): string
 }
 
 $app = require $root . '/config/app.php';
-$allowedAppKeys = ['name', 'key', 'url', 'env', 'debug', 'timezone', 'version'];
+$allowedAppKeys = ['name', 'key', 'previous_keys', 'url', 'env', 'debug', 'timezone', 'version'];
 foreach (array_diff(array_keys($app), $allowedAppKeys) as $key) {
     $failures[] = "config/app.php defines application-specific key [{$key}]";
 }
