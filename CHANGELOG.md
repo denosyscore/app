@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.16.0 – 2026-11-13
+
+- Require framework 0.21.0. Models are replaced by records: `App\Models\User`
+  is a final class that implements `Record` with the `Persists` trait and
+  `AuthenticatableInterface`, and its public properties are its columns
+  (`id`, `name`, `email`, `password`, `remember_token`). Build response data
+  explicitly instead of relying on hidden attributes. Relations are strict,
+  and `make:model` generates records.
+
 ## v0.15.0 – 2026-11-13
 
 - Require framework 0.20.0. Its query builder is immutable: builder methods

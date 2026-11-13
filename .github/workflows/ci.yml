@@ -54,3 +54,6 @@ jobs:
 
       - name: Development router
         run: php tests/dev_server.php
+
+      - name: Starter user record
+        run: php tests/user_record.php
